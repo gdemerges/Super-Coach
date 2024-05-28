@@ -1,14 +1,16 @@
-//
-//  Super_CoachApp.swift
-//  Super Coach
-//
-//  Created by Guillaume Demergès on 28/05/2024.
-//
-
 import SwiftUI
 
 @main
-struct Super_CoachApp: App {
+struct MyApp: App {
+    init() {
+        let appearance = UINavigationBarAppearance()
+        appearance.configureWithOpaqueBackground()
+        appearance.backgroundColor = UIColor.black
+        appearance.titleTextAttributes = [.foregroundColor: UIColor.white]
+        UINavigationBar.appearance().standardAppearance = appearance
+        UINavigationBar.appearance().scrollEdgeAppearance = appearance
+    }
+
     var body: some Scene {
         WindowGroup {
             ContentView()
