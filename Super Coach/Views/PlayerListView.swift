@@ -15,8 +15,7 @@ struct PlayerListView: View {
     var body: some View {
         NavigationView {
             ZStack {
-                Color.black.edgesIgnoringSafeArea(.all) 
-                
+                Color.black.edgesIgnoringSafeArea(.all)
                 
                 VStack {
                     HStack {
@@ -25,11 +24,11 @@ struct PlayerListView: View {
                             .padding(.horizontal, 25)
                             .background(Color(.white))
                             .cornerRadius(8)
-                            .foregroundColor(.white)
+                            .foregroundColor(.black)
                             .overlay(
                                 HStack {
                                     Image(systemName: "magnifyingglass")
-                                        .foregroundColor(.white)
+                                        .foregroundColor(.gray)
                                         .frame(minWidth: 0, maxWidth: .infinity, alignment: .leading)
                                         .padding(.leading, 16)
                                     
@@ -38,7 +37,7 @@ struct PlayerListView: View {
                                             self.searchText = ""
                                         }) {
                                             Image(systemName: "multiply.circle.fill")
-                                                .foregroundColor(.white)
+                                                .foregroundColor(.gray)
                                                 .padding(.trailing, 16)
                                         }
                                     }
@@ -49,36 +48,39 @@ struct PlayerListView: View {
                     .padding(.top, 10)
                     .background(Color.black)
                     
-                    List(filteredPlayers) { player in
-                        NavigationLink(destination: PlayerDetailView(player: player)) {
-                            HStack {
-                                Image(player.imageName)
-                                    .resizable()
-                                    .aspectRatio(contentMode: .fit)
-                                    .frame(width: 50, height: 50)
-                                    .clipShape(Circle())
-                                    .padding(.trailing, 10)
-                                
-                                VStack(alignment: .leading) {
-                                    Text(player.name)
-                                        .font(.headline)
-                                        .foregroundColor(.white)
-                                    Text(player.position)
-                                        .font(.subheadline)
-                                        .foregroundColor(.gray)
+                    ScrollView {
+                        LazyVGrid(columns: [GridItem(.flexible()), GridItem(.flexible()), GridItem(.flexible())], spacing: 20) {
+                            ForEach(filteredPlayers) { player in
+                                NavigationLink(destination: PlayerDetailView(player: player)) {
+                                    VStack {
+                                        Image(player.imageName)
+                                            .resizable()
+                                            .aspectRatio(contentMode: .fit)
+                                            .frame(width: 100, height: 100)
+                                            .clipShape(Circle())
+                                        
+                                        Text(player.name)
+                                            .font(.headline)
+                                            .foregroundColor(.white)
+                                        
+                                        Text(player.position)
+                                            .font(.subheadline)
+                                            .foregroundColor(.gray)
+                                    }
+                                    .padding()
+                                    .cornerRadius(10)
                                 }
                             }
-                            .padding()
                         }
-                        .listRowBackground(Color.gray.opacity(0.2))
+                        .padding()
                     }
-                    .background(Color.black)
-                    .scrollContentBackground(.hidden)
-                    .navigationBarTitle("Joueurs", displayMode: .inline)
+                    
+                    Spacer()
                 }
             }
+            .navigationBarTitle("Joueurs", displayMode: .inline)
         }
-        .navigationViewStyle(StackNavigationViewStyle()) 
+        .navigationViewStyle(StackNavigationViewStyle())
     }
 }
 

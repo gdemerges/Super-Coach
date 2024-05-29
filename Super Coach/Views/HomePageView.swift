@@ -4,22 +4,27 @@ struct HomePageView: View {
     var body: some View {
         ScrollView {
             VStack(spacing: 20) {
+                Text("Super Coach")
+                    .font(.largeTitle)
+                    .fontWeight(.bold)
+                    .foregroundColor(.white)
+                    .padding(.top, 0)
+
                 HStack {
                     Image("ryan_image")
                         .resizable()
                         .aspectRatio(contentMode: .fit)
-                        .frame(width: 50, height: 50)
+                        .frame(width: 100, height: 100)
                         .clipShape(Circle())
                         .padding(.trailing, 10)
                     
-                    Text("Bienvenue Ryan")
-                        .font(.title2)
+                    Text("Bienvenue Rayan")
+                        .font(.title)
                         .fontWeight(.medium)
                         .foregroundColor(.white)
                 }
                 .padding(.top, 20)
                 
-                // Title
                 Text("Dernier Match")
                     .font(.largeTitle)
                     .fontWeight(.bold)
@@ -40,7 +45,7 @@ struct HomePageView: View {
                         .background(Color.black.opacity(0.7))
                         .cornerRadius(10)
                 }
-                .frame(height: UIScreen.main.bounds.height * 0.4) //
+                .frame(height: UIScreen.main.bounds.height * 0.4)
                 
                 VStack(alignment: .leading, spacing: 10) {
                     Text("Stats Générales")
@@ -69,7 +74,6 @@ struct HomePageView: View {
             .padding(20)
         }
         .background(Color.black.edgesIgnoringSafeArea(.all))
-        .navigationBarTitle("Super Coach", displayMode: .inline)
     }
 }
 

@@ -9,7 +9,7 @@ struct ContentView: View {
                     Text("Accueil")
                 }
             
-            MatchView()
+            MatchListView(matches: sampleMatches)
                 .tabItem {
                     Image(systemName: "sportscourt")
                     Text("Match")

@@ -2,103 +2,189 @@ import SwiftUI
 
 struct PlayerDetailView: View {
     let player: Player
-
+    
     var body: some View {
         ScrollView {
-            VStack(alignment: .leading, spacing: 20) {
-                HStack {
-                    Image(player.imageName)
-                        .resizable()
-                        .aspectRatio(contentMode: .fit)
-                        .frame(width: 100, height: 100)
-                        .clipShape(Circle())
-                        .padding(.trailing, 10)
+            VStack(spacing: 20) {
+                VStack(spacing: 10) {
+                    HStack {
+                        Image(player.imageName)
+                            .resizable()
+                            .aspectRatio(contentMode: .fit)
+                            .frame(width: 70, height: 70)
+                            .clipShape(Circle())
+                        
+                        VStack(alignment: .leading) {
+                            Text(player.name)
+                                .font(.title)
+                                .fontWeight(.bold)
+                                .foregroundColor(.white)
+                            
+                            HStack {
+                                Image(player.teamLogo)
+                                    .resizable()
+                                    .aspectRatio(contentMode: .fit)
+                                    .frame(width: 20, height: 20)
+                                Text(player.team)
+                                    .foregroundColor(.white)
+                                    .font(.subheadline)
+                            }
+                        }
+                        
+                        Spacer()
+                    }
+                    .padding()
+                    .background(Color.blue)
+                    .cornerRadius(20)
+                }
+                
+                VStack(spacing: 10) {
+                    HStack {
+                        VStack {
+                            Text("\(player.height) cm")
+                                .font(.title2)
+                                .fontWeight(.bold)
+                                .foregroundColor(.white)
+                            Text("Height")
+                                .font(.caption)
+                                .foregroundColor(.white)
+                        }
+                        Spacer()
+                        VStack {
+                            Text("\(player.age) years")
+                                .font(.title2)
+                                .fontWeight(.bold)
+                                .foregroundColor(.white)
+                            Text("Age")
+                                .font(.caption)
+                                .foregroundColor(.white)
+                        }
+                        Spacer()
+                        VStack {
+                            Text(player.country)
+                                .font(.title2)
+                                .fontWeight(.bold)
+                                .foregroundColor(.white)
+                            Text("Country")
+                                .font(.caption)
+                                .foregroundColor(.white)
+                        }
+                    }
                     
-                    VStack(alignment: .leading, spacing: 5) {
-                        Text("Nom: \(player.name)")
-                            .font(.title)
-                            .foregroundColor(.white)
-                        Text("Age: \(player.age)")
-                            .font(.subheadline)
-                            .foregroundColor(.white)
-                        Text("Position: \(player.position)")
-                            .font(.subheadline)
-                            .foregroundColor(.white)
-                        Text("Buts: \(player.goals)")
-                            .font(.subheadline)
-                            .foregroundColor(.white)
-                        Text("Passes décisives: \(player.assists)")
-                            .font(.subheadline)
-                            .foregroundColor(.white)
+                    Divider().background(Color.white)
+                    
+                    HStack {
+                        VStack {
+                            Text("\(player.shirtNumber)")
+                                .font(.title2)
+                                .fontWeight(.bold)
+                                .foregroundColor(.white)
+                            Text("Shirt")
+                                .font(.caption)
+                                .foregroundColor(.white)
+                        }
+                        Spacer()
+                        VStack {
+                            Text(player.preferredFoot)
+                                .font(.title2)
+                                .fontWeight(.bold)
+                                .foregroundColor(.white)
+                            Text("Preferred foot")
+                                .font(.caption)
+                                .foregroundColor(.white)
+                        }
+                        Spacer()
+                        VStack {
+                            Text("$\(player.marketValue)M")
+                                .font(.title2)
+                                .fontWeight(.bold)
+                                .foregroundColor(.white)
+                            Text("Market value")
+                                .font(.caption)
+                                .foregroundColor(.white)
+                        }
+                    }
+                    
+                    Divider().background(Color.white)
+                    
+                    HStack {
+                        VStack {
+                            Text("\(player.matches)")
+                                .font(.title2)
+                                .fontWeight(.bold)
+                                .foregroundColor(.white)
+                            Text("Matches")
+                                .font(.caption)
+                                .foregroundColor(.white)
+                        }
+                        Spacer()
+                        VStack {
+                            Text("\(player.goals)")
+                                .font(.title2)
+                                .fontWeight(.bold)
+                                .foregroundColor(.white)
+                            Text("Goals")
+                                .font(.caption)
+                                .foregroundColor(.white)
+                        }
+                        Spacer()
+                        VStack {
+                            Text("\(player.assists)")
+                                .font(.title2)
+                                .fontWeight(.bold)
+                                .foregroundColor(.white)
+                            Text("Assists")
+                                .font(.caption)
+                                .foregroundColor(.white)
+                        }
+                        Spacer()
+                        VStack {
+                            Text("\(player.rating, specifier: "%.2f")")
+                                .font(.title2)
+                                .fontWeight(.bold)
+                                .padding(4)
+                                .background(Color.green)
+                                .cornerRadius(5)
+                            Text("Rating")
+                                .font(.caption)
+                                .foregroundColor(.white)
+                        }
                     }
                 }
                 .padding()
                 .background(Color.gray.opacity(0.2))
-                .cornerRadius(10)
-                .frame(maxWidth: .infinity, alignment: .center)
-                
-                VStack(alignment: .leading, spacing: 10) {
-                    Text("Performances")
-                        .font(.headline)
-                        .foregroundColor(.white)
-                    Text("Note: 8.5")
-                        .foregroundColor(.white)
-                    Text("5 derniers matches: 7, 8, 9, 6, 8")
-                        .foregroundColor(.white)
-                }
-                .padding()
-                .background(Color.gray.opacity(0.2))
-                .cornerRadius(10)
-                .frame(maxWidth: .infinity, alignment: .center)
-                
-                VStack(alignment: .leading, spacing: 10) {
-                    Text("Statistiques")
-                        .font(.headline)
-                        .foregroundColor(.white)
-                    Text("Temps de jeu: 90 minutes")
-                        .foregroundColor(.white)
-                    Text("Distance parcourue: 10.5 km")
-                        .foregroundColor(.white)
-                    Text("Duels remportés: 15")
-                        .foregroundColor(.white)
-                    Text("Passes réussies: 85%")
-                        .foregroundColor(.white)
-                    Text("Tirs cadrés: 3")
-                        .foregroundColor(.white)
-                }
-                .padding()
-                .background(Color.gray.opacity(0.2))
-                .cornerRadius(10)
-                .frame(maxWidth: .infinity, alignment: .center)
+                .cornerRadius(20)
                 
                 VStack(alignment: .leading, spacing: 10) {
                     Text("Analyse du jour")
                         .font(.headline)
                         .foregroundColor(.white)
+                    
                     Text("Alou a montré une excellente forme lors du dernier match, démontrant sa capacité à contrôler le milieu de terrain et à contribuer à la fois défensivement et offensivement.")
                         .foregroundColor(.white)
                 }
                 .padding()
                 .background(Color.gray.opacity(0.2))
-                .cornerRadius(10)
+                .cornerRadius(20)
                 
                 VStack(alignment: .leading, spacing: 10) {
-                    Text("Recommendation")
+                    Text("Recommandation")
                         .font(.headline)
                         .foregroundColor(.white)
+                    
                     Text("Il est recommandé à Alou de travailler son endurance et ses compétences défensives pour devenir un joueur plus complet. Participer à des sessions de formation supplémentaires axées sur ces domaines sera bénéfique.")
                         .foregroundColor(.white)
                 }
                 .padding()
                 .background(Color.gray.opacity(0.2))
-                .cornerRadius(10)
-
+                .cornerRadius(20)
+                
                 Spacer()
             }
             .padding()
             .background(Color.black.edgesIgnoringSafeArea(.all))
-            .navigationTitle("Détails joueur")
         }
+        .navigationBarTitle("Détails joueur", displayMode: .inline)
     }
 }
 
