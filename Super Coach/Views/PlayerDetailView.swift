@@ -8,11 +8,19 @@ struct PlayerDetailView: View {
             VStack(spacing: 20) {
                 VStack(spacing: 10) {
                     HStack {
-                        Image(player.imageName)
-                            .resizable()
-                            .aspectRatio(contentMode: .fit)
-                            .frame(width: 70, height: 70)
-                            .clipShape(Circle())
+                        GeometryReader { geometry in
+                            VStack {
+                                Spacer()
+                                
+                                Image(player.imageName)
+                                    .resizable()
+                                    .aspectRatio(contentMode: .fill)
+                                    .frame(height: 190)
+                                    .clipped()
+                            }
+                            .frame(height: 180)
+                        }
+                        .frame(width: 180, height: 150)
                         
                         VStack(alignment: .leading) {
                             Text(player.name)

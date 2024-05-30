@@ -25,6 +25,11 @@ struct HomePageView: View {
                 }
                 .padding(.top, 20)
                 
+                Text("Prochain match : AFP FC - Simplon FC")
+                    .font(.title2)
+                    .fontWeight(.medium)
+                    .foregroundColor(.white)
+                
                 Text("Dernier Match")
                     .font(.largeTitle)
                     .fontWeight(.bold)

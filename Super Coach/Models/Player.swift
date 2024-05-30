@@ -20,7 +20,7 @@ struct Player: Identifiable {
 }
 
 let samplePlayers = [
-    Player(name: "Djessim", age: 25, position: "Attaquant", goals: 10, assists: 5, imageName: "djessim", height: 180, country: "FRA", team: "FC Duche", teamLogo: "la_duche_logo", shirtNumber: 9, preferredFoot: "Right", marketValue: 50, matches: 15, rating: 7.5),
+    Player(name: "Djessim", age: 25, position: "Attaquant", goals: 10, assists: 5, imageName: "djessim_correct", height: 180, country: "FRA", team: "FC Duche", teamLogo: "la_duche_logo", shirtNumber: 9, preferredFoot: "Right", marketValue: 50, matches: 15, rating: 7.5),
     Player(name: "Alou", age: 22, position: "Milieu", goals: 7, assists: 8, imageName: "alou", height: 175, country: "FRA", team: "FC Duche", teamLogo: "la_duche_logo", shirtNumber: 10, preferredFoot: "Left", marketValue: 45, matches: 18, rating: 7.8),
     Player(name: "JS", age: 27, position: "Défenseur", goals: 2, assists: 3, imageName: "js", height: 185, country: "FRA", team: "FC Duche", teamLogo: "la_duche_logo", shirtNumber: 4, preferredFoot: "Right", marketValue: 40, matches: 20, rating: 7.2),
     Player(name: "Arturo", age: 27, position: "Défenseur", goals: 2, assists: 3, imageName: "arturo", height: 182, country: "ESP", team: "FC Duche", teamLogo: "la_duche_logo", shirtNumber: 5, preferredFoot: "Left", marketValue: 38, matches: 17, rating: 7.0),
